@@ -23,12 +23,14 @@ const App = () => {
 
 
 
+
   const NextQuestion = () => {
     const selectedOption = Input.current.find(item => item && item.checked)
-    if(selectedOption === questions[currentIndex].correctAnswer){
-      setScore()
+    let correctAnswer = questions[currentIndex].correctAnswer
+    if(selectedOption.value === correctAnswer){
+      setScore(score + 10)
     }else{
-      setScore()
+      setScore(score)
     }
 
     if(currentIndex < questions.length - 1){
@@ -58,11 +60,10 @@ const App = () => {
   }
   return (
     <>
-      <h1 className='text-3xl font-bold text-center mt-10'>Quiz App {`${100} / ${score}`}</h1>
+      <h1 className='text-3xl font-bold text-center mt-10'>Quiz App 100/ {score}</h1>
       {
         questions ? <div>
-          <h1 className='text-2xl m-10 bg-red-300 p-5 font-bold'>Q{currentIndex + 1} : 
-          {questions[currentIndex].question.text}</h1>
+          <h1 className='text-2xl m-10 bg-red-300 p-5 font-bold'>Q{currentIndex + 1} : {questions[currentIndex].question.text}</h1>
           {shuffleArray([...questions[currentIndex].incorrectAnswers, 
            questions[currentIndex].correctAnswer]).map((item,index)=>{
             return(
