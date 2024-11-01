@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './index.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Score from './Score'
 
 const App = () => {
  const [questions, setQuestions] = useState(null)
@@ -19,16 +20,11 @@ const App = () => {
         console.log(err)
       })
   },[])
-
-
-
-
-
   const NextQuestion = () => {
     const selectedOption = Input.current.find(item => item && item.checked)
     let correctAnswer = questions[currentIndex].correctAnswer
-    if(selectedOption.value === correctAnswer){
-      setScore(score + 10)
+    if(selectedOption && selectedOption.value === correctAnswer){
+      setScore(score + 1)
     }else{
       setScore(score)
     }
@@ -37,10 +33,13 @@ const App = () => {
       setCurrentIndex(currentIndex + 1) 
       return
     }
-    navigate('QuizScore')
+    navigate('QuizScore', {
+      state:{
+      score,
+      questions
+      }
+    });
   }
-
-
 
 
 
@@ -60,7 +59,7 @@ const App = () => {
   }
   return (
     <>
-      <h1 className='text-3xl font-bold text-center mt-10'>Quiz App 100/ {score}</h1>
+      <h1 className='text-3xl font-bold text-center mt-10'>Quiz App 100</h1>
       {
         questions ? <div>
           <h1 className='text-2xl m-10 bg-red-300 p-5 font-bold'>Q{currentIndex + 1} : {questions[currentIndex].question.text}</h1>
