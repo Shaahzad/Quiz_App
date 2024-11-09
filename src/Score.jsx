@@ -14,12 +14,12 @@ const Score = () => {
 
   return (
     <div className='flex flex-col justify-center items-center mt-10 gap-5'>
-      <h1 className='text-3xl'>Quiz Score</h1>
-      <h1 className='text-3xl'>{percentage} %</h1>
+      <h1 className='text-3xl font-bold'>Quiz Score</h1>
+      <h1 className='text-3xl font-bold'>{percentage} %</h1>
       {
         percentage >= 50
-        ? <h1 className='text-green-400 text-2xl'>Pass</h1>
-        : <h1 className='text-red-500 text-2xl'>Fail</h1>
+        ? <h1 className='text-green-400 text-2xl font-bold'>Pass</h1>
+        : <h1 className='text-red-500 text-2xl font-bold'>Fail</h1>
       }
     </div>
   )

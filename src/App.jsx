@@ -62,7 +62,7 @@ const App = () => {
       <h1 className='text-3xl font-bold text-center mt-10'>Quiz App 100</h1>
       {
         questions ? <div>
-          <h1 className='text-2xl m-10 bg-red-300 p-5 font-bold'>Q{currentIndex + 1} : {questions[currentIndex].question.text}</h1>
+          <h1 className='text-2xl m-10 bg-red-400 p-5 font-bold'>Q{currentIndex + 1} : {questions[currentIndex].question.text}</h1>
           {shuffleArray([...questions[currentIndex].incorrectAnswers, 
            questions[currentIndex].correctAnswer]).map((item,index)=>{
             return(
@@ -74,7 +74,7 @@ const App = () => {
             )
           })}
           <button onClick={NextQuestion} className='text-2xl m-10 bg-blue-300 p-5 font-bold rounded-2xl'>Next</button>
-        </div> : <h1 className='text-3xl font-bold text-center mt-10'>Loading...</h1>
+        </div> : <h1 className='text-5xl font-bold text-center mt-10'>Loading...</h1>
       }
     </>
   )
