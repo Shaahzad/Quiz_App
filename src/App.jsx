@@ -59,7 +59,7 @@ const App = () => {
   }
   return (
     <>
-      <h1 className='text-3xl font-bold text-center mt-10'>Quiz App 100</h1>
+      <h1 className='text-5xl font-bold text-center mt-10'>Quiz App 100</h1>
       {
         questions ? <div>
           <h1 className='text-3xl m-10 bg-red-400 p-5 font-bold'>Q{currentIndex + 1} : {questions[currentIndex].question.text}</h1>
