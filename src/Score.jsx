@@ -13,7 +13,7 @@ const Score = () => {
   },[])
 
   return (
-    <div className='flex flex-col justify-center items-center mt-10 gap-8'>
+    <div className='flex flex-col justify-center items-center mt-12 gap-8'>
       <h1 className='text-5xl font-bold'>Quiz Score</h1>
       <h1 className='text-5xl font-bold'>{percentage} %</h1>
       {
